@@ -1,0 +1,57 @@
+﻿
+@model IEnumerable<ProyectoV2.Models.Clasificacion>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Clasificacion Clientes</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Crear", null, new { @class = "btn btn-primary" })
+</p>
+@if (!Model.Any())
+{
+    <p>No estan definidas las clasificaciones </p>
+}
+else
+{
+    <table id="ClasificacionCliente" class="table table-bordered table-hover">
+        <thead>
+
+            <tr>
+                <td> Codigo</td>
+                <td> Descripcion </td>
+                <td> Estado </td>
+                <td> Accciones </td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var clasificacion in Model)
+            {
+                <tr>
+                    <td>@clasificacion.Codigo</td>
+                    <td>@clasificacion.Descripcion</td>
+                    <td>@Html.DisplayFor(m => clasificacion.Estado)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = clasificacion.ClasificacionId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Detalle", "Detalle", new { id = clasificacion.ClasificacionId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = clasificacion.ClasificacionId}, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+@section Scripts
+{
+    <script>
+        $(document).ready(function()
+        {
+            $("#Clasificacion").DataTable();
+        })
+    </script>
+}
+
+

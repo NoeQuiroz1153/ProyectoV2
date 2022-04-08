@@ -1,0 +1,26 @@
+﻿@model ProyectoV2.Models.Unidad
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de Unidades de Medida </h2>
+<div>
+    <h4>Unidades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Codigo)</dt>
+        <dd>@Html.DisplayFor(model => model.Codigo)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Estado)</dt>
+        <dd>@Html.DisplayFor(model => model.Estado)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-secondary" }) |
+    @Html.ActionLink("Editar", "Editar", new { id = Model.UnidadMedidaId }, new { @class = "btn btn-info" }) |
+</p>
+
+

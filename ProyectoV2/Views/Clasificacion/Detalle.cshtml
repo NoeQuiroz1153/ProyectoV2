@@ -1,0 +1,36 @@
+﻿@model ProyectoV2.Models.Clasificacion
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle Cliente</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Codigo)
+        </dt>
+        <dd>
+            @Html.DisplayNameFor(m => m.Codigo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayNameFor(m => m.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Estado)
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.ClasificacionID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn btn-light" })
+    </p>
+</div>
+
+

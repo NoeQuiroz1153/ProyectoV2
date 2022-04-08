@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoV2.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Productos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Producto", "Nuevo", new { @class = "btn btn-dark" })
+</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha de Creacion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Actions Options</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.ProductoId }, new { @class = "btn btn-outline-info" })
+                @Html.ActionLink("Detalles", "Detalles", new { id = item.ProductoId }, new { @class = "btn btn-outline-warning" })
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ProductoId }, new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+

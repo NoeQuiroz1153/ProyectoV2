@@ -1,0 +1,53 @@
+﻿@model ProyectoV2.Models.Clasificacion
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar Clasificacion Cliente</h2>
+<h3>¿ Esta seguro que desea eliminar el registro?</h3>
+<div>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Codigo)
+            </dt>
+            <dd>
+                @Html.DisplayNameFor(m => m.Codigo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.Descripcion)
+            </dt>
+            <dd>
+                @Html.DisplayNameFor(m => m.Descripcion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.Estado)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.Estado)
+            </dd>
+        </dl>
+        <p>
+
+            @using (Html.BeginForm("Eliminar", "Clasificacion"))
+            {
+                @Html.AntiForgeryToken();
+
+            <p>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn btn-light" })
+            </p>
+        }
+
+
+            </p>
+
+
+
+
+        </div>
+    </div>
+
+

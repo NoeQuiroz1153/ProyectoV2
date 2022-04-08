@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProyectoV2.Models.Clientes>
+@{
+    ViewBag.Title = "IndexClientes";
+}
+
+<h2>IndexClientes</h2>
+<p>
+    @Html.ActionLink("Nuevo", "Crear", null, new { @class = "btn btn-primary" })
+</p>
+@if (!Model.Any())
+{
+    <p>No esta definidos los clientes</p>
+}
+else
+{
+    <table id="Cliente" class="table table-bordered table-hover">
+        <thead>
+
+            <tr>
+
+                <td> Nombres</td>
+                <td> Apellidos</td>
+                <td> Descripcion Cliente</td>
+                <td> Fecha Creacion </td>
+                <td> PorcDescuento </td>
+                <td> Estado</td>
+                <td> Acciones </td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+
+                    <td>@cliente.Nombres</td>
+                    <td>@cliente.Apellidos</td>
+                    <td>@cliente.Clasificacion.Descripcion</td>
+                    <td>@cliente.FechaCreacion</td>
+                    <td>@cliente.PorcDescuento</td>
+                    <td>@Html.DisplayFor(m => cliente.Estado)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = cliente.ClienteId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Detalle", "Detalle", new { id = cliente.ClienteId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = cliente.ClienteId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+@section Scripts
+{
+    <script>
+        $(document).ready(function()
+        {
+            $("#Clientes").DataTable();
+        })
+    </script>
+}
+
